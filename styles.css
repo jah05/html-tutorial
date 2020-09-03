@@ -1,9 +1,27 @@
 h2 {
-  color:#ffffff
+  color:#ffffff;
+  text-align:center;
+  background-color:gray
 }
 body{
    font-family:Trebuchet MS;
-   background-image: "C:/Users/houj0/Documents/honor_cs/html/html-tutorial/rsc/bg.jpg"
+   background-image: url("rsc/bg.jpg");
+   background-blend-mode: lighten;
+   background-color: rgb(211,211,211)
+}
+table, th, td{
+  border: 1px solid black;
+  border-collapse: collapse;
+  padding:5px;
+}
+th{
+  text-align: center
+}
+tr:nth-child(even){
+  background-color: #eee;
+}
+tr:nth-child(odd){
+  background-color:#ffffff;
 }
 pre{
    font-family:Trebuchet MS;
@@ -20,4 +38,10 @@ a:active{
 }
 a:hover{
   color:red
+}
+ul{
+  list-style-type:circle;
+}
+.story{
+   border: 1px solid black
 }
