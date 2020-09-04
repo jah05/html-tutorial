@@ -5,9 +5,8 @@ h2 {
 }
 body{
    font-family:Trebuchet MS;
-   background-image: url("rsc/bg.jpg");
    background-blend-mode: lighten;
-   background-color: rgb(211,211,211)
+   background-color: white;
 }
 table, th, td{
   border: 1px solid black;
@@ -44,4 +43,16 @@ ul{
 }
 .story{
    border: 1px solid black
+}
+.tbc{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+.ec{
+  background-color:light gray;
+  border-radius: 30px;
+  margin:auto;
+  border:10px;
+  padding:10px;
 }

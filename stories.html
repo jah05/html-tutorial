@@ -4,7 +4,7 @@
     <title>JSPN - Not Run By Woj</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body>
+  <body onload="expandAndCollapse(-1)">
     <h1 style="background-color:hsla(0, 100%, 50%, 0.7)" id="Home">
       JSPN - James Sports Network
     </h1>
@@ -17,7 +17,8 @@
 
     <button onclick="document.location='stats.html'">Stats</button>
     <h2 id="stories">STORIES</h2>
-    <table>
+    <div class="tbc">
+      <table>
       <tr>
         <th colspan=2>Table of Contents</th>
       <tr>
@@ -49,12 +50,13 @@
         <td><a href="#0">Clippers Choke</a></td>
       </tr>
     </table>
+    </div>
     <!-- Article 1 -->
     <div class="story" id="4">
       <h3 style="color:rgb(220, 0, 255);">
         Ravens Cut Pro-Bowl Safety Earl Thomas
+        <button onclick=expandAndCollapse(this.value) value=0 class="ec"><strong>EXPAND</strong></button>
       </h3>
-      <button onclick=expandAndCollapse(this.value) value=4 class="ec">Expand</button>
       <div class="content">
         <h4>8/23/2020 4:46PM Nick</h4>
         <p>
@@ -85,8 +87,8 @@
             NBA DRAFT LOTTERY!!!
           </mark>
         </strong>
+        <button onclick=expandAndCollapse(this.value) value=1 class="ec"><strong>EXPAND</strong></button>
       </h3>
-      <button onclick=expandAndCollapse(this.value) value=3 class="ec">Expand</button>
       <div class="content">
         <h4>8/20/2020 6:15PM James</h4>
         <p>
@@ -114,8 +116,10 @@
 
     <!-- Article 3 -->
     <div class="story" id="2">
-      <h3 style="color:green">Bucks tie up the series 1-1</h3>
-      <button onclick=expandAndCollapse(this.value) value=2 class="ec">Expand</button>
+      <h3 style="color:green">
+          Bucks tie up the series 1-1
+          <button onclick=expandAndCollapse(this.value) value=2 class="ec"><strong>EXPAND</strong></button>
+      </h3>
       <div class="content">
         <h4>8/20/2020 5:41PM James</h4>
         <p>
@@ -132,8 +136,8 @@
         <a href="https://www.mavsmoneyball.com/2020/8/19/21376860/nba-playoffs-2020-luka-doncic-passes-kareem-abdul-jabbar-nba-record-mavericks-clippers">
           Luka Doncic Breaks Record
         </a>
+        <button onclick=expandAndCollapse(this.value) value=3 class="ec"><strong>EXPAND</strong></button>
       </h3>
-      <button onclick=expandAndCollapse(this.value) value=1 class="ec">Expand</button>
       <div class="content">
         <h4>8/20/2020 10:30AM James</h4>
         <pre>
@@ -146,8 +150,10 @@
 
     <!-- Article 5 -->
     <div class="story" id="0">
-      <h3 style="color:red">Clippers lose to Mavericks</h3>
-      <button onclick=expandAndCollapse(this.value) value=0 class="ec">Expand</button>
+      <h3 style="color:red">
+        Clippers lose to Mavericks
+        <button onclick=expandAndCollapse(this.value) value=4 class="ec"><strong>EXPAND</strong></button>
+      </h3>
       <div class="content">
         <h4>8/20/2020 11:44AM James</h4>
         <p title="Paul George 'PG13' Messed Up">
@@ -179,14 +185,19 @@
                     {number:4, title:"Ravens Cut Pro-Bowl Safety Earl Thomas", displayStatus:false}
       ];
     function expandAndCollapse(articleNum){
-      articles[articleNum]["displayStatus"] = !articles[articleNum]["displayStatus"];
+      if (articleNum >= 0){
+        articles[articleNum]["displayStatus"] = !articles[articleNum]["displayStatus"];
+      }
       var buttons = document.getElementsByClassName("ec")
+      var stories = document.getElementsByClassName("content")
       for(var i=0; i<articles.length; i++){
         if(articles[i]["displayStatus"]){
-            buttons[i].innerText = "Collapse";
+            buttons[i].innerText = "COLLAPSE";
+            stories[i].style.display = "block";
         }
         else{
-            buttons[i].innerHTML = "Expand";
+            buttons[i].innerHTML = "EXPAND";
+            stories[i].style.display = "none";
         }
       }
     }
