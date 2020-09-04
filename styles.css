@@ -42,10 +42,10 @@ ul{
   list-style-type:circle;
 }
 .story{
-   border: 1px solid black
+   border: 1px solid #d0d0d0;
+   background-color: #d0d0d0;
 }
 .tbc{
-  margin: auto;
   width: 50%;
   padding: 10px;
 }
