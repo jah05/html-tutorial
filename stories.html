@@ -51,9 +51,10 @@
     </table>
     <!-- Article 1 -->
     <div class="story" id="4">
-      <h3 style="color:rgb(220, 0, 255);border:2px solid #6a5acd">
+      <h3 style="color:rgb(220, 0, 255);">
         Ravens Cut Pro-Bowl Safety Earl Thomas
       </h3>
+      <button onclick=expandAndCollapse(this.value) value=4 class="ec">Expand</button>
       <div class="content">
         <h4>8/23/2020 4:46PM Nick</h4>
         <p>
@@ -85,6 +86,7 @@
           </mark>
         </strong>
       </h3>
+      <button onclick=expandAndCollapse(this.value) value=3 class="ec">Expand</button>
       <div class="content">
         <h4>8/20/2020 6:15PM James</h4>
         <p>
@@ -113,6 +115,7 @@
     <!-- Article 3 -->
     <div class="story" id="2">
       <h3 style="color:green">Bucks tie up the series 1-1</h3>
+      <button onclick=expandAndCollapse(this.value) value=2 class="ec">Expand</button>
       <div class="content">
         <h4>8/20/2020 5:41PM James</h4>
         <p>
@@ -130,6 +133,7 @@
           Luka Doncic Breaks Record
         </a>
       </h3>
+      <button onclick=expandAndCollapse(this.value) value=1 class="ec">Expand</button>
       <div class="content">
         <h4>8/20/2020 10:30AM James</h4>
         <pre>
@@ -143,6 +147,7 @@
     <!-- Article 5 -->
     <div class="story" id="0">
       <h3 style="color:red">Clippers lose to Mavericks</h3>
+      <button onclick=expandAndCollapse(this.value) value=0 class="ec">Expand</button>
       <div class="content">
         <h4>8/20/2020 11:44AM James</h4>
         <p title="Paul George 'PG13' Messed Up">
@@ -167,16 +172,22 @@
     </footer>
   </body>
   <script>
-    var articles = [{number:0, title:"Clippers lose to Mavericks", display-status:false},
-                    {number:1, title:"Luka Doncic Breaks Record", display-status:false},
-                    {number:2, title:"Bucks tie up the series 1-1", display-status:false},
-                    {number:3, title:"NBA DRAFT LOTTERY!!!", display-status:false},
-                    {number:4, title:"Ravens Cut Pro-Bowl Safety Earl Thomas", display-status:false}
+    var articles = [{number:0, title:"Clippers lose to Mavericks", displayStatus:false},
+                    {number:1, title:"Luka Doncic Breaks Record", displayStatus:false},
+                    {number:2, title:"Bucks tie up the series 1-1", displayStatus:false},
+                    {number:3, title:"NBA DRAFT LOTTERY!!!", displayStatus:false},
+                    {number:4, title:"Ravens Cut Pro-Bowl Safety Earl Thomas", displayStatus:false}
       ];
-    function expandAndCollapse(){
-      var story = document.getElementsByClassName("story");
-      for(var i=0; i<story.length; i++){
-        var content = story.getElementsByClassName("content")
+    function expandAndCollapse(articleNum){
+      articles[articleNum]["displayStatus"] = !articles[articleNum]["displayStatus"];
+      var buttons = document.getElementsByClassName("ec")
+      for(var i=0; i<articles.length; i++){
+        if(articles[i]["displayStatus"]){
+            buttons[i].innerText = "Collapse";
+        }
+        else{
+            buttons[i].innerHTML = "Expand";
+        }
       }
     }
   </script>
