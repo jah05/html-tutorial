@@ -1,60 +1,118 @@
+/* color scheme
+    - primary: #003c7d
+    - secondary: #051747
+    - titles: #faed26
+    - text: #ffffff
+*/
+h1 {
+  background-color: #051747;
+  color: #faed26;
+}
 h2 {
-  color:#ffffff;
+  background-color: #051747;
+  color: #faed26;
   text-align:center;
-  background-color:gray;
 }
-body{
-   font-family:Trebuchet MS;
-   background-blend-mode: lighten;
-   background-color: white;
+h4 {
+  color:white;
 }
-table, th, td{
+h5 {
+  color:white;
+}
+body {
+  font-family:Trebuchet MS;
+  background-blend-mode: lighten;
+  background-color: #003c7d;
+}
+hr {
+  border-color: #051747;
+}
+table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding:5px;
 }
-th{
+th {
   text-align: center;
 }
-tr:nth-child(even){
+tr:nth-child(even) {
   background-color: #eee;
 }
-tr:nth-child(odd){
+tr:nth-child(odd) {
   background-color:#ffffff;
 }
-pre{
-   font-family:Trebuchet MS;
-   font-size:16px;
+pre {
+  font-family:Trebuchet MS;
+  color:white;
+  font-size:16px;
 }
-a:link{
-  color:blue;
+a:link {
+  color:#faed26;
 }
-a:visited{
-  color:purple;
+a:visited {
+  color:#faed26;
 }
-a:active{
-  color:blue;
+a:active {
+  color:#faed26;
 }
-a:hover{
-  color:red;
+a:hover {
+  color:#faed26;
 }
 ul{
   list-style-type:circle;
 }
-.story{
-   border: 1px solid #d0d0d0;
-   background-color: #d0d0d0;
-   border-radius: 5px;
+iframe {
+  display:inline-block;
+  border:1px #003c7d;
 }
-.tbc{
-  width: 50%;
+p {
+  color:white;
+  padding:10px
+}
+img {
+  padding:10px;
+}
+address {
+  color:white;
+}
+blockquote {
+  color:white;
+}
+.story {
+  border: 1px solid #051747;
+  background-color: #051747;
+}
+#tbc {
   padding: 10px;
   display: inline-block;
 }
-.ec{
+.ec {
   background-color:light gray;
-  border-radius: 30px;
-  margin:auto;
+  border-radius: 18px;
   border:10px;
   padding:10px;
+  float:right;
+  font-weight:bold;
+}
+.article-title {
+  color: #faed26;
+  font-weight: bold;
+}
+.link-title {
+  font-weight: bold;
+}
+.link-title:link {
+  color: #faed26;
+}
+.link-title:visited {
+  color: #faed26;
+}
+.link-title:active {
+  color: #faed26;
+}
+.link-title:hover {
+  color: #faed26;
+}
+.cool-content {
+  align:center;
 }

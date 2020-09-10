@@ -3,14 +3,6 @@
   <head>
     <title>JSPN - Not Run By Woj</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-      h1{
-        background-color:hsla(0, 100%, 50%, 0.7)
-      }
-      iframe{
-        display:inline-block
-      }
-    </style>
     <script>
       var articles = [{number:0, title:"Clippers lose to Mavericks", displayStatus:false},
                       {number:1, title:"Luka Doncic Breaks Record", displayStatus:false},
@@ -56,49 +48,50 @@
 
     <button onclick="document.location='stats.html'">Stats</button>
     <h2 id="stories">STORIES</h2>
-    <div class="tbc">
-      <table>
-      <tr>
-        <th colspan=2>Table of Contents</th>
-      </tr>
-      <tr>
-        <th>#</th>
-        <th>Section</th>
-      </tr>
-      <tr>
-        <td>1.</td>
-        <td><a href="#stories">Stories</a></td>
-      </tr>
-      <tr>
-        <td>2.</td>
-        <td><a href="#4">Earl Thomas Cut</a></td>
-      </tr>
-      <tr>
-        <td>3.</td>
-        <td><a href="#3">NBA Draft Lottery</a></td>
-      </tr>
-      <tr>
-        <td>4.</td>
-        <td><a href="#2">Bucks Tie Up the Series</a></td>
-      </tr>
-      <tr>
-        <td>5.</td>
-        <td><a href="#1">Doncic Breaks Record</a></td>
-      </tr>
-      <tr>
-        <td>6.</td>
-        <td><a href="#0">Clippers Choke</a></td>
-      </tr>
-    </table>
+    <div class="cool-content">
+      <div id="tbc">
+        <table>
+        <tr>
+          <th colspan=2>Table of Contents</th>
+        </tr>
+        <tr>
+          <th>#</th>
+          <th>Section</th>
+        </tr>
+        <tr>
+          <td>1.</td>
+          <td><a href="#stories">Stories</a></td>
+        </tr>
+        <tr>
+          <td>2.</td>
+          <td><a href="#4">Earl Thomas Cut</a></td>
+        </tr>
+        <tr>
+          <td>3.</td>
+          <td><a href="#3">NBA Draft Lottery</a></td>
+        </tr>
+        <tr>
+          <td>4.</td>
+          <td><a href="#2">Bucks Tie Up the Series</a></td>
+        </tr>
+        <tr>
+          <td>5.</td>
+          <td><a href="#1">Doncic Breaks Record</a></td>
+        </tr>
+        <tr>
+          <td>6.</td>
+          <td><a href="#0">Clippers Choke</a></td>
+        </tr>
+      </table>
+      </div>
+      <iframe src="https://bleacherreport.com" height="300" width="500"></iframe>
     </div>
-
-    <iframe src="https://bleacherreport.com" height="300" width="500"></iframe>
 
     <!-- Article 1 -->
     <div class="story" id="4">
-      <h3 style="color:rgb(220, 0, 255);">
+      <h3 class="article-title">
         Ravens Cut Pro-Bowl Safety Earl Thomas
-        <button onclick=expandAndCollapse(this.value) value=0 class="ec"><strong>EXPAND</strong></button>
+        <button onclick=expandAndCollapse(this.value) value=0 class="ec">EXPAND</button>
       </h3>
       <div class="content">
         <hr />
@@ -125,13 +118,11 @@
 
     <!-- Article 2 -->
     <div class="story" id="3">
-      <h3>
+      <h3 class="article-title">
         <strong>
-          <mark style="color:hsl(240, 100%, 50%)">
             NBA DRAFT LOTTERY!!!
-          </mark>
         </strong>
-        <button onclick=expandAndCollapse(this.value) value=1 class="ec"><strong>EXPAND</strong></button>
+        <button onclick=expandAndCollapse(this.value) value=1 class="ec">EXPAND</button>
       </h3>
       <div class="content">
         <hr />
@@ -161,9 +152,9 @@
 
     <!-- Article 3 -->
     <div class="story" id="2">
-      <h3 style="color:green">
+      <h3 class="article-title">
           Bucks tie up the series 1-1
-          <button onclick=expandAndCollapse(this.value) value=2 class="ec"><strong>EXPAND</strong></button>
+          <button onclick=expandAndCollapse(this.value) value=2 class="ec">EXPAND</button>
       </h3>
       <div class="content">
         <hr />
@@ -178,11 +169,11 @@
 
     <!-- Article 4 -->
     <div class="story" id="1">
-      <h3 id="1">
-        <a href="https://www.mavsmoneyball.com/2020/8/19/21376860/nba-playoffs-2020-luka-doncic-passes-kareem-abdul-jabbar-nba-record-mavericks-clippers">
+      <h3 class="article-title">
+        <a href="https://www.mavsmoneyball.com/2020/8/19/21376860/nba-playoffs-2020-luka-doncic-passes-kareem-abdul-jabbar-nba-record-mavericks-clippers" class="link-title">
           Luka Doncic Breaks Record
         </a>
-        <button onclick=expandAndCollapse(this.value) value=3 class="ec"><strong>EXPAND</strong></button>
+        <button onclick=expandAndCollapse(this.value) value=3 class="ec">EXPAND</button>
       </h3>
       <div class="content">
         <hr />
@@ -197,9 +188,9 @@
 
     <!-- Article 5 -->
     <div class="story" id="0">
-      <h3 style="color:red">
+      <h3 class="article-title">
         Clippers lose to Mavericks
-        <button onclick=expandAndCollapse(this.value) value=4 class="ec"><strong>EXPAND</strong></button>
+        <button onclick=expandAndCollapse(this.value) value=4 class="ec">EXPAND</button>
       </h3>
       <div class="content">
         <hr />
