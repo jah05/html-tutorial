@@ -12,6 +12,7 @@ h2 {
   background-color: #051747;
   color: #faed26;
   text-align:center;
+  text-transform:uppercase;
 }
 h4 {
   color:white;
@@ -31,6 +32,7 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding:5px;
+  background-color: orange;
 }
 th {
   text-align: center;
@@ -86,8 +88,8 @@ blockquote {
   background-color: #051747;
 }
 #tbc {
-  padding: 10px;
-  display: inline-block;
+  display:inline-block;
+  height:250px;
 }
 .ec {
   background-color:light gray;
@@ -117,5 +119,11 @@ blockquote {
   color: #faed26;
 }
 .cool-content {
-  align:center;
+  display:inline-block;
+  /*box model*/
+  border:solid;
+  padding:10px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left:25%;
 }
