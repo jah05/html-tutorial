@@ -4,9 +4,6 @@
     - titles: #faed26
     - text: #ffffff
 */
-* {
-  box-sizing: border-box;
-}
 h1 {
   background-color: #051747;
   color: #faed26;
