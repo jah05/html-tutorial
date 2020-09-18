@@ -66,11 +66,11 @@ a:active {
 a:hover {
   color:#faed26;
 }
-ul{
+ul {
   list-style-type:circle;
   color:white;
 }
-ol{
+ol {
   color:white;
 }
 iframe {
@@ -90,7 +90,7 @@ address {
 blockquote {
   color:white;
 }
-button:hover{
+button:hover {
   text-decoration:underline;
 }
 .story {
