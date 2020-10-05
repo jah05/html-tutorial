@@ -1,222 +1,386 @@
-<!DOCTYPE html>
-<html lang="en-US">
-  <head>
-    <title>JSPN - Not Run By Woj</title>
-    <link rel="stylesheet" href="styles.css" />
-    <script>
-      var articles = [{number:0, title:"Clippers lose to Mavericks", displayStatus:false},
-                      {number:1, title:"Luka Doncic Breaks Record", displayStatus:false},
-                      {number:2, title:"Bucks tie up the series 1-1", displayStatus:false},
-                      {number:3, title:"NBA DRAFT LOTTERY!!!", displayStatus:false},
-                      {number:4, title:"Ravens Cut Pro-Bowl Safety Earl Thomas", displayStatus:false}
-        ];
-      function expandAndCollapse(articleNum){
-        if (articleNum >= 0){
-          articles[articleNum]["displayStatus"] = !articles[articleNum]["displayStatus"];
-        }
-        var buttons = document.getElementsByClassName("ec")
-        var stories = document.getElementsByClassName("content")
-        for(var i=0; i<articles.length; i++){
-          if(articles[i]["displayStatus"]){
+  <!DOCTYPE html>
+  <html lang="en-US">
+    <head>
+      <title>JSPN - Not Run By Woj</title>
+
+      <!--<link rel="stylesheet" href="styles.css" />-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+      <!-- Popper JS -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+      <!-- Latest compiled JavaScript -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+
+        var articles = [{number:0, title:"Clippers lose to Mavericks", displayStatus:false},
+                        {number:1, title:"Luka Doncic Breaks Record", displayStatus:false},
+                        {number:2, title:"Bucks tie up the series 1-1", displayStatus:false},
+                        {number:3, title:"NBA DRAFT LOTTERY!!!", displayStatus:false},
+                        {number:4, title:"Ravens Cut Pro-Bowl Safety Earl Thomas", displayStatus:false}
+          ];
+        function expandAndCollapse(articleNum){
+          if (articleNum >= 0){
+            articles[articleNum]["displayStatus"] = !articles[articleNum]["displayStatus"];
+          }
+          var buttons = document.getElementsByClassName("ec")
+          var stories = document.getElementsByClassName("content")
+          for(var i=0; i<articles.length; i++){
+            if(articles[i]["displayStatus"]){
               buttons[i].innerText = "COLLAPSE";
               stories[i].style.display = "block";
-          }
-          else{
+            }
+            else{
               buttons[i].innerHTML = "EXPAND";
               stories[i].style.display = "none";
+            }
           }
         }
-      }
-    </script>
+        function expand(articleNum){
+          articleNum = 4-articleNum;
+          var buttons = document.getElementsByClassName("ec");
+          var stories = document.getElementsByClassName("content");
+          articles[articleNum]["displayStatus"] = true;
+          buttons[articleNum].innerText = "COLLAPSE";
+          stories[articleNum].style.display = "block";
+        }
+      </script>
 
-    <meta charset="utf-8">
-    <meta name="keywords" content="Sports, NBA, NFL, ESPN">
-    <meta name="description" content="Sports Website">
-    <meta name="author" content="James H.">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body onload="expandAndCollapse(-1)">
-    <h1 id="Home">
-      JSPN - James Sports Network
-    </h1>
-    <img src="rsc/logos.jpg" title="nba and nfl" alt="Logos of NBA (Left) NFL(RIGHT)" height=50 width=100 usemap="#workmap" id="logos">
-      <map name="workmap">
-        <area shape="rect" coords="0,0,50,50" alt="NBA" href="https://nba.com" />
-        <area shape="rect" coords="50,0,100,50" alt="NFL" href="https:/nfl.com" />
-      </map>
-    </img>
-
-    <button onclick="document.location='stats.html'" id="stats_button">Stats</button>
-    <h2 id="stories">stories</h2>
-    <div class="cool-content">
-      <table id="tbc">
-        <tr>
-          <th colspan=2>Table of Contents</th>
-        </tr>
-        <tr>
-          <th>#</th>
-          <th>Section</th>
-        </tr>
-        <tr>
-          <td>1.</td>
-          <td><a href="#stories">Stories</a></td>
-        </tr>
-        <tr>
-          <td>2.</td>
-          <td><a href="#4">Earl Thomas Cut</a></td>
-        </tr>
-        <tr>
-          <td>3.</td>
-          <td><a href="#3">NBA Draft Lottery</a></td>
-        </tr>
-        <tr>
-          <td>4.</td>
-          <td><a href="#2">Bucks Tie Up the Series</a></td>
-        </tr>
-        <tr>
-          <td>5.</td>
-          <td><a href="#1">Doncic Breaks Record</a></td>
-        </tr>
-        <tr>
-          <td>6.</td>
-          <td><a href="#0">Clippers Choke</a></td>
-        </tr>
-      </table>
-      <iframe src="https://bleacherreport.com" height="250" width="500"></iframe>
-    </div>
-
-    <!-- Article 1 -->
-    <div class="story" id="4">
-      <h3 class="article-title">
-        Ravens Cut Pro-Bowl Safety Earl Thomas
-        <button onclick=expandAndCollapse(this.value) value=0 class="ec">EXPAND</button>
-      </h3>
-      <div class="content">
-        <hr />
-        <h4>8/23/2020 4:46PM Nick</h4>
-        <p>
-          Following an altercation between Pro-Bowl Safety Earl Thomas and teammate Chuck Clark, the Ravens have decided to cut Thomas who was expected to be paid $10 million.
-        </p>
-        <img src="rsc/earl-thomas-cut.jpg" title="Earl Thomas" alt="Earl Thomas" height=250 width=410 />
-        <p>
-          After receiving news of his termination, the safety posted on his instagram:
-          <q>
-            Had a great run .. Wish things would have ended different but you live and you learn. Thank you [Ravens GM] Eric DeCosta and everyone else who played a role in bringing him to <abbr title="Baltimore">B-More</abbr>. Wish you guys the best.
-          </q>
-        </p>
-        <address>
-          Written by Nick Johnson.<br />
-          Visit us at: <a href="https://agar.io">agar.io</a><br>
-          Box 111, Six Flags<br />
-          USA
-        </address>
-      </div>
-    </div>
-    <hr />
-
-    <!-- Article 2 -->
-    <div class="story" id="3">
-      <h3 class="article-title">
-        <strong>
-            NBA DRAFT LOTTERY!!!
-        </strong>
-        <button onclick=expandAndCollapse(this.value) value=1 class="ec">EXPAND</button>
-      </h3>
-      <div class="content">
-        <hr />
-        <h4>8/20/2020 6:15PM James</h4>
-        <p>
-          Knicks lose out on draft lottery once again, dropping from the projected 6th pick to the 8<sup>th</sup> pick in their ill-fated season.
-          <br />
-          Good news for Timberwolves fans, despite missing the playoffs with <del><em>Andrew Wiggins</em></del> <em>D'Angelo Russell</em> it gave you a chance at the NBA Lottery.
-          <br />
-          Guess what, you hold the <em style="font-family:impact;color:green">FIRST PICK</em><sub>subject to change</sub>
-        </p>
-        <a href="https://twitter.com/KingJosiah54/status/1296610287643062272?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet" target="_blank">
-          <img src="rsc/knick-lottery.jpg" title="F" alt="Knicks Fans" height=300 width=400 />
-        </a>
-        <p><cite>Original Tweet</cite> by @KingJosiah54. Posted on Aug 20</p>
-        <p>
-          Here are some takes
-          <blockquote cite="https://bleacherreport.com/articles/2905589-nba-lottery-results-2020-full-selection-order-analysis-and-more">
-            The general belief all year had LaMelo Ball, Anthony Edwards and James Wiseman as top-three overall favorites, with Obi Toppin,
-            Deni Avdija, Onyeka Okongwu and Isaac Okoro mixed into a tier that either slightly overlaps or follows. But based from some
-            scouts' takes I've heard over the past few weeks, mock drafts could start looking silly right from the top.       -Wasserman
-          </blockquote>
-        </p>
-      </div>
-    </div>
-    <hr />
-
-    <!-- Article 3 -->
-    <div class="story" id="2">
-      <h3 class="article-title">
-          Bucks tie up the series 1-1
-          <button onclick=expandAndCollapse(this.value) value=2 class="ec">EXPAND</button>
-      </h3>
-      <div class="content">
-        <hr />
-        <h4>8/20/2020 5:41PM James</h4>
-        <p>
-          After an embarassing first game, Giannis has put himself back together and mustered a win against the Magic. <em><small>Final Score: 111-96 Bucks</small></em> <strong style="color:green"><ins>W</ins></strong>
-        </p>
-        <img src="rsc/giannis_over_vucevic.jpg" title="Giannis is decent now" alt="Giannis making a layup over Vucevic" height=350 width=500 />
-      </div>
-    </div>
-    <hr />
-
-    <!-- Article 4 -->
-    <div class="story" id="1">
-      <h3 class="article-title">
-        <a href="https://www.mavsmoneyball.com/2020/8/19/21376860/nba-playoffs-2020-luka-doncic-passes-kareem-abdul-jabbar-nba-record-mavericks-clippers" class="link-title">
-          Luka Doncic Breaks Record
-        </a>
-        <button onclick=expandAndCollapse(this.value) value=3 class="ec">EXPAND</button>
-      </h3>
-      <div class="content">
-        <hr />
-        <h4>8/20/2020 10:30AM James</h4>
-        <pre>
-          <strong>Doncic scores 70 in his first two playoff games which is the most for any playoff debut
-          <em>He surpasses Kareem Abdul Jabaar</em></strong>
-        </pre>
-      </div>
-    </div>
-    <hr />
-
-    <!-- Article 5 -->
-    <div class="story" id="0">
-      <h3 class="article-title">
-        Clippers lose to Mavericks
-        <button onclick=expandAndCollapse(this.value) value=4 class="ec">EXPAND</button>
-      </h3>
-      <div class="content">
-        <hr />
-        <h4>8/20/2020 11:44AM James</h4>
-        <p title="Paul George 'PG13' Messed Up">
-          Playoff P <b style="color:tomato">Chokes</b>! Shoots 4/17
-        </p>
-        <img src="rsc/pg-airball.jpg" title="Kawhi regrets decision" alt="Kawhi and George's reactions to George's airball" width="500" height="300" />
-        <h5 style="font-size:10px" title="caption">
-          Kawhi tries to make sense of Paul George's airball
-        </h5>
-        <p>
-          Here is the final
-          <button onclick="document.location='https://www.nba.com/games/20200819/DALLAC#/boxscore'">
-            box score.
+      <meta charset="utf-8">
+      <meta name="keywords" content="Sports, NBA, NFL, ESPN">
+      <meta name="description" content="Sports Website">
+      <meta name="author" content="James H.">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body onload="expandAndCollapse(-1)">
+      <div class="container bg-light">
+        <div class="container-fluid bg-primary text-white display-1">
+          <h1 id="Home">
+            JSPN
+          </h1>
+        </div>
+        <div class="row">
+          <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+            <img src="rsc/logos.jpg" title="nba and nfl" alt="Logos of NBA (Left) NFL(RIGHT)" height=50 usemap="#workmap" id="logos">
+              <div>
+                <map name="workmap">
+                  <area shape="rect" coords="0,0,50,50" alt="NBA" href="https://nba.com" />
+                  <area shape="rect" coords="50,0,100,50" alt="NFL" href="https:/nfl.com" />
+                </map>
+              </div>
+            </img>
+          </div>
+          <div class="col-xl-5 col-lg-5 col-md-4 col-sm-3">&nbsp;</div>
+          <div class="col-2">
+            <button onclick="document.location='stats.html'" id="stats_button" class="btn btn-info">
+              Stats
+            </button>
+          </div>
+          <button class="btn btn-primary col-xl-2 col-lg-2 col-md-3 col-sm-3">
+            <div class="spinner-border spinner-border-sm"></div>
+            Loading...
           </button>
-        </p>
-      </div>
-    </div>
-    <hr />
+        </div>
 
-    <!-- Contact -->
-    <footer>
-      <a href="#Home">Back to top</a>
-      <a href="mailto:johndoe@gmail.com"title="email">Email Us</a>
-      <p>
-        Non-existent Copyright: &#169; James Sports Network, Inc. No Rights Reserved
-      </p>
-    </footer>
-  </body>
-</html>
+        <div>
+          <nav class="navbar navbar-expand-sm navbar-expand-md bg-secondary navbar-dark">
+            <ul class="navbar-nav">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="stories.html" id="navbardrop" data-toggle="dropdown">
+                  STORIES
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#latest">Latest</a>
+                  <a class="dropdown-item" href="#4" onclick=expand(4)>
+                    1. Earl Thomas
+                  </a>
+                  <a class="dropdown-item" href="#3" onclick=expand(3)>
+                    2. NBA Draft Lottery
+                  </a>
+                  <a class="dropdown-item" href="#2" onclick=expand(2)>
+                    3. Bucks Tie Up the Series
+                  </a>
+                  <a class="dropdown-item" href="#1" onclick=expand(1)>
+                    4. Doncic Breaks Record
+                  </a>
+                  <a class="dropdown-item" href="#0" onclick=expand(0)>
+                    5. Clippers Choke
+                  </a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="stats.html">STATS</a>
+              </li>
+            </ul>
+          <nav>
+        </div>
+
+        <!--<div><h2 id="stories" class="bg-secondary text-light">STORIES</h2></div>-->
+        <div class="container jumbotron bg-warning mx-auto" id="latest">
+          <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-2 col-sm-2">&nbsp;</div>
+            <div class="form-group">
+              <label for="usr">Username:</label>
+              <input type="text" class="form-control" id="usr">
+            </div>
+            <div class="col-1">&nbsp;</div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input type="text" class="form-control" id="usr">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-4">&nbsp;</div>
+            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3">
+              <table id="tbc" class="container-fluid table table-striped table-bordered">
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <div class="container">
+                  <div class="col-6">
+                    <thead>
+                      <tr>
+                        <div class="col-xl-3 col-lg-3 col-md-2 col-sm-1"><th>#</th></div>
+                        <div class="col-xl-9 col-lg-9 col-md-10 col-sm-11"><th>Section</th></div>
+                      </tr>
+                    <thead>
+                  </div>
+                </div>
+                <div class="text-info">
+                  <tbody id="myTable">
+                    <tr>
+                      <td>1.</td>
+                      <td><a href="#stories" class="text-info">Stories</a></td>
+                    </tr>
+                    <tr>
+                      <td>2.</td>
+                      <td><a href="#4" class="text-info">Earl Thomas Cut</a></td>
+                    </tr>
+                    <tr>
+                      <td>3.</td>
+                      <td><a href="#3" class="text-info">NBA Draft Lottery</a></td>
+                    </tr>
+                    <tr>
+                      <td>4.</td>
+                      <td><a href="#2" class="text-info">Bucks Tie Up the Series</a></td>
+                    </tr>
+                    <tr>
+                      <td>5.</td>
+                      <td><a href="#1" class="text-info">Doncic Breaks Record</a></td>
+                    </tr>
+                    <tr>
+                      <td>6.</td>
+                      <td><a href="#0" class="text-info">Clippers Choke</a></td>
+                    </tr>
+                  </tbody>
+                </div>
+              </table>
+            </div>
+            <div class="col-xl-5 col-lg-5 col-md-12 col-sm-12">
+              <iframe src="https://bleacherreport.com" class="col-12 container" height=""></iframe>
+            </div>
+          </div>
+          <div class="row">
+            <div id="demo" class="carousel slide" data-ride="carousel">
+              <ul class="carousel-indicators">
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li>
+                <li data-target="#demo" data-slide-to="3"></li>
+              </ul>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="rsc/earl-thomas-cut.jpg" alt="earl thomas" class= "col-12">
+                </div>
+                <div class="carousel-item">
+                  <img src="rsc/knick-lottery.jpg" alt="earl thomas" class= "col-12">
+                </div>
+                <div class="carousel-item">
+                  <img src="rsc/giannis_over_vucevic.jpg" alt="earl thomas" class= "col-12">
+                </div>
+                <div class="carousel-item">
+                  <img src="rsc/pg-airball.jpg" alt="earl thomas" class= "col-12">
+                </div>
+              </div>
+              <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next" href="#demo" data-slide="next">
+                <span class="carousel-control-next-icon"></span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Article 1 -->
+        <div class="container-fluid bg-secondary text-white" id="4">
+          <div class="row">
+            <h3 class="article-title col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              Ravens Cut Pro-Bowl Safety Earl Thomas
+            </h3>
+            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3">&nbsp;</div>
+            <button onclick=expandAndCollapse(this.value) value=0 class="ec btn btn-primary col-xl-2 col-lg-2 col-md-3 col-sm-3">EXPAND</button>
+          </div>
+          <div class="content container-fluid">
+            <hr class="hr" />
+            <h4>8/23/2020 4:46PM Nick</h4>
+            <div>
+              Following an altercation between Pro-Bowl Safety Earl Thomas and teammate Chuck Clark, the Ravens have decided to cut Thomas who was expected to be paid $10 million.
+            </div>
+            <div class="row">
+              <img src="rsc/earl-thomas-cut.jpg" title="Earl Thomas" alt="Earl Thomas" class="col-12"/>
+            </div>
+            <div>
+              After receiving news of his termination, the safety posted on his instagram:
+              <q>
+                Had a great run .. Wish things would have ended different but you live and you learn. Thank you [Ravens GM] Eric DeCosta and everyone else who played a role in bringing him to <abbr title="Baltimore">B-More</abbr>. Wish you guys the best.
+              </q>
+            </div>
+            <address class="address">
+              Written by Nick Johnson.<br />
+              Visit us at: <a href="https://agar.io">agar.io</a><br>
+              Box 111, Six Flags<br />
+              USA
+            </address>
+          </div>
+        </div>
+        <hr class="hr" />
+
+        <!-- Article 2 -->
+        <div class="container-fluid bg-secondary text-white" id="3">
+          <div class="row">
+            <h3 class="article-title col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              <strong>
+                  NBA DRAFT LOTTERY!!!
+              </strong>
+            </h3>
+            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3">&nbsp;</div>
+            <button onclick=expandAndCollapse(this.value) value=1 class="ec clas btn btn-primary col-xl-2 col-lg-2 col-md-3 col-sm-3">EXPAND</button>
+          </div>
+          <div class="content container-fluid">
+            <hr class="hr" />
+            <h4>8/20/2020 6:15PM James</h4>
+            <div>
+              Knicks lose out on draft lottery once again, dropping from the projected 6th pick to the 8<sup>th</sup> pick in their ill-fated season.
+              <br />
+              Good news for Timberwolves fans, despite missing the playoffs with <del><em>Andrew Wiggins</em></del> <em>D'Angelo Russell</em> it gave you a chance at the NBA Lottery.
+              <br />
+              Guess what, you hold the <em style="font-family:impact;color:green">FIRST PICK</em><sub>subject to change</sub>
+            </div>
+            <div class="row">
+              <a href="https://twitter.com/KingJosiah54/status/1296610287643062272?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Etweet" target="_blank">
+                <img src="rsc/knick-lottery.jpg" title="F" alt="Knicks Fans" class="col-12" />
+              </a>
+            </div>
+            <div><cite>Original Tweet</cite> by @KingJosiah54. Posted on Aug 20</div>
+            <div>
+              Here are some takes
+              <blockquote cite="https://bleacherreport.com/articles/2905589-nba-lottery-results-2020-full-selection-order-analysis-and-more" class="blockquote">
+                The general belief all year had LaMelo Ball, Anthony Edwards and James Wiseman as top-three overall favorites, with Obi Toppin,
+                Deni Avdija, Onyeka Okongwu and Isaac Okoro mixed into a tier that either slightly overlaps or follows. But based from some
+                scouts' takes I've heard over the past few weeks, mock drafts could start looking silly right from the top.       -Wasserman
+              </blockquote>
+            </div>
+          </div>
+        </div>
+        <hr class="hr" />
+
+        <!-- Article 3 -->
+        <div class="container-fluid bg-secondary text-white" id="2">
+          <div class="row">
+            <h3 class="article-title col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                Bucks tie up the series 1-1
+            </h3>
+            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3">&nbsp;</div>
+            <button onclick=expandAndCollapse(this.value) value=2 class="ec col-xl-2 col-lg-2 col-md-3 col-sm-3 btn btn-primary">EXPAND</button>
+          </div>
+          <div class="content container-fluid">
+            <hr class="hr" />
+            <h4>8/20/2020 5:41PM James</h4>
+            <div>
+              After an embarassing first game, Giannis has put himself back together and mustered a win against the Magic. <em><small>Final Score: 111-96 Bucks</small></em> <strong style="color:green"><ins>W</ins></strong>
+            </div>
+            <div class="row">
+              <img src="rsc/giannis_over_vucevic.jpg" title="Giannis is decent now" alt="Giannis making a layup over Vucevic" class="col-12"/>
+            </div>
+          </div>
+        </div>
+        <hr class="hr" />
+
+        <!-- Article 4 -->
+        <div class="container-fluid bg-secondary text-white" id="1">
+          <div class="row">
+            <h3 class="article-title col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              <a href="https://www.mavsmoneyball.com/2020/8/19/21376860/nba-playoffs-2020-luka-doncic-passes-kareem-abdul-jabbar-nba-record-mavericks-clippers" class="link-title text-light">
+                Luka Doncic Breaks Record
+              </a>
+            </h3>
+            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3">&nbsp;</div>
+            <button onclick=expandAndCollapse(this.value) value=3 class="ec col-xl-2 col-lg-2 col-md-3 col-sm-3 btn btn-primary">EXPAND</button>
+          </div>
+          <div class="content container-fluid">
+            <hr class="hr" />
+            <h4>8/20/2020 10:30AM James</h4>
+            <div>
+              <strong>Doncic scores 70 in his first two playoff games which is the most for any playoff debut
+              <em>He surpasses Kareem Abdul Jabaar</em></strong>
+            </div>
+          </div>
+        </div>
+        <hr class="hr" />
+
+        <!-- Article 5 -->
+        <div class="container-fluid bg-secondary text-white" id="0">
+          <div class="row">
+            <h3 class="article-title col-xl-6 col-lg-6 col-md-6 col-sm-6">
+              Clippers lose to Mavericks
+            </h3>
+            <div class="col-xl-4 col-lg-4 col-md-3 col-sm-3">&nbsp;</div>
+            <button onclick=expandAndCollapse(this.value) value=4 class="ec col-xl-2 col-lg-2 col-md-3 col-sm-3 btn btn-primary">EXPAND</button>
+          </div>
+          <div class="content container-fluid">
+            <hr class="hr" />
+            <h4>8/20/2020 11:44AM James</h4>
+            <div title="Paul George 'PG13' Messed Up">
+              Playoff P <b style="color:tomato">Chokes</b>! Shoots 4/17
+            </div>
+            <div class="row">
+              <img src="rsc/pg-airball.jpg" title="Kawhi regrets decision" alt="Kawhi and George's reactions to George's airball" class="col-12" />
+            </div>
+            <h5 style="font-size:10px" title="caption">
+              Kawhi tries to make sense of Paul George's airball
+            </h5>
+            <div>
+              Here is the final
+              <button onclick="document.location='https://www.nba.com/games/20200819/DALLAC#/boxscore'">
+                box score.
+              </button>
+            </div>
+          </div>
+        </div>
+        <hr class="hr" />
+
+        <!-- Contact -->
+        <footer>
+          <a href="#Home">Back to top</a>
+          <a href="mailto:johndoe@gmail.com"title="email">Email Us</a>
+          <div>
+            Non-existent Copyright: &#169; James Sports Network, Inc. No Rights Reserved
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment:</label>
+            <textarea class="form-control" rows="5" id="comment"></textarea>
+          </div>
+        </footer>
+      </div>
+    </body>
+  </html>
