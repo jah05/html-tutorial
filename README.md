@@ -10,3 +10,12 @@ The theme is sports news.
 
 * The CSS Project is done at commit: [3ae11a7](https://github.com/jah05/html-tutorial/tree/3ae11a7e4f3627c6f282386b0d95a6b7354fbff1)
   * CSS File: styles.css
+
+* The Bootstrap Project is done at commit: [29bb868](https://github.com/jah05/html-tutorial/tree/29bb868906331e259ab5437102f15db0c0b51e52)
+  * 5 Components
+    * Jumbotron
+    * Media Object
+    * Carousel
+    * Filter
+  * Special Navbar - Dropdown
+  
